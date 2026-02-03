@@ -1,5 +1,6 @@
 import { useState, useRef } from "react";
-import bgMusic from "./music/raanjhanaa-lyrical-video-dhanush-sonam-kapoor-a-r-rahman-jaswinder-sing_bR1Qdl3c.mp3";
+
+const bgMusicUrl = "/music/music.mp3";
 
 export default function Page() {
   const [noCount, setNoCount] = useState(0);
@@ -62,7 +63,7 @@ export default function Page() {
         ref={audioRef}
         loop
         preload="auto"
-        src={bgMusic}
+        src={bgMusicUrl}
       />
 
       {/* Music Toggle Button */}
