@@ -92,7 +92,7 @@ export default function Page() {
       )}
 
       <p className="absolute bottom-4 text-center text-sm text-gray-500">
-        made with ❤️ by pralay
+        made by pralay
       </p>
     </div>
   );
