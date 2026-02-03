@@ -5,6 +5,9 @@ import sadgif2 from "./assets/sad2.gif";
 import sadgif3 from "./assets/sad3.gif";
 import sadgif4 from "./assets/sad4.gif";
 import sadgif5 from "./assets/sad5.gif";
+import sadgif6 from "./assets/sad6.gif";
+import sadgif7 from "./assets/sad7.gif";
+
 
 const bgMusicUrl = "/music/music.mp3";
 
@@ -48,7 +51,7 @@ export default function Page() {
   };
 
   const getSadGif = () => {
-    const gifs = [sadgif1, sadgif2, sadgif3, sadgif4, sadgif5];
+    const gifs = [sadgif1, sadgif2, sadgif3, sadgif4, sadgif5, sadgif6, sadgif7];
     return gifs[Math.min(noCount, gifs.length - 1)];
   };
 
