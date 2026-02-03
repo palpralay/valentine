@@ -156,7 +156,9 @@ export default function Page() {
       <p className="absolute bottom-12 text-center text-sm text-gray-500">
         <a
           href="https://www.instagram.com/__pralay_paul__?igsh=MWVoazlneWVzeXU0ag=="
-          rel="link"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hover:text-gray-700"
         >
           made by @Pralay
         </a>
