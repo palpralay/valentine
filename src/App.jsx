@@ -1,12 +1,41 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
+import bgMusic from "./music/raanjhanaa-lyrical-video-dhanush-sonam-kapoor-a-r-rahman-jaswinder-sing_bR1Qdl3c.mp3";
 
 export default function Page() {
   const [noCount, setNoCount] = useState(0);
   const [yesPressed, setYesPressed] = useState(false);
+  const [musicPlaying, setMusicPlaying] = useState(false);
+  const audioRef = useRef(null);
 
   const yesButtonSize = noCount * 16 + 18;
 
+  const playMusic = () => {
+    if (audioRef.current) {
+      audioRef.current.play()
+        .then(() => {
+          setMusicPlaying(true);
+          console.log("Music playing!");
+        })
+        .catch((error) => {
+          console.error("Audio play error:", error);
+        });
+    }
+  };
+
+  const toggleMusic = () => {
+    if (audioRef.current) {
+      if (musicPlaying) {
+        audioRef.current.pause();
+        setMusicPlaying(false);
+      } else {
+        audioRef.current.play();
+        setMusicPlaying(true);
+      }
+    }
+  };
+
   const handleNoClick = () => {
+    playMusic();
     setNoCount((prev) => prev + 1);
   };
 
@@ -28,6 +57,23 @@ export default function Page() {
 
   return (
     <div className="relative min-h-screen flex flex-col items-center justify-center text-zinc-900 backdrop-blur-sm">
+      {/* Background Music */}
+      <audio
+        ref={audioRef}
+        loop
+        preload="auto"
+        src={bgMusic}
+      />
+
+      {/* Music Toggle Button */}
+      <button
+        onClick={toggleMusic}
+        className="absolute top-4 right-4 bg-pink-500 hover:bg-pink-600 text-white p-3 rounded-full shadow-lg transition-all duration-200 hover:scale-110"
+        title={musicPlaying ? "Pause music" : "Play music"}
+      >
+        {musicPlaying ? "🔊" : "🔇"}
+      </button>
+      
       {yesPressed ? (
         <>
           <img
@@ -55,7 +101,10 @@ export default function Page() {
             {/* YES */}
             <button
               style={{ fontSize: yesButtonSize }}
-              onClick={() => setYesPressed(true)}
+              onClick={() => {
+                playMusic();
+                setYesPressed(true);
+              }}
               className="
               cursor-pointer
                 bg-transparent
