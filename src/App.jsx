@@ -27,7 +27,7 @@ export default function Page() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center text-zinc-900 backdrop-blur-sm">
+    <div className="relative min-h-screen flex flex-col items-center justify-center text-zinc-900 backdrop-blur-sm">
       {yesPressed ? (
         <>
           <img
@@ -90,6 +90,10 @@ export default function Page() {
           </div>
         </>
       )}
+
+      <p className="absolute bottom-4 text-center text-sm text-gray-500">
+        made with ❤️ by pralay
+      </p>
     </div>
   );
 }
