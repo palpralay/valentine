@@ -8,7 +8,6 @@ import sadgif5 from "./assets/sad5.gif";
 import sadgif6 from "./assets/sad6.gif";
 import sadgif7 from "./assets/sad7.gif";
 
-
 const bgMusicUrl = "/music/music.mp3";
 
 export default function Page() {
@@ -51,7 +50,15 @@ export default function Page() {
   };
 
   const getSadGif = () => {
-    const gifs = [sadgif1, sadgif2, sadgif3, sadgif4, sadgif5, sadgif6, sadgif7];
+    const gifs = [
+      sadgif1,
+      sadgif2,
+      sadgif3,
+      sadgif4,
+      sadgif5,
+      sadgif6,
+      sadgif7,
+    ];
     return gifs[Math.min(noCount, gifs.length - 1)];
   };
 
@@ -146,8 +153,13 @@ export default function Page() {
         </>
       )}
 
-      <p className="absolute bottom-4 text-center text-sm text-gray-500">
-        made by pralay
+      <p className="absolute bottom-12 text-center text-sm text-gray-500">
+        <a
+          href="https://www.instagram.com/__pralay_paul__?igsh=MWVoazlneWVzeXU0ag=="
+          rel="link"
+        >
+          made by @Pralay
+        </a>
       </p>
     </div>
   );
