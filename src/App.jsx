@@ -1,4 +1,10 @@
 import { useState, useRef } from "react";
+import loveGif from "./assets/love.gif";
+import sadgif1 from "./assets/sad1.gif";
+import sadgif2 from "./assets/sad2.gif";
+import sadgif3 from "./assets/sad3.gif";
+import sadgif4 from "./assets/sad4.gif";
+import sadgif5 from "./assets/sad5.gif";
 
 const bgMusicUrl = "/music/music.mp3";
 
@@ -12,7 +18,8 @@ export default function Page() {
 
   const playMusic = () => {
     if (audioRef.current) {
-      audioRef.current.play()
+      audioRef.current
+        .play()
         .then(() => {
           setMusicPlaying(true);
           console.log("Music playing!");
@@ -40,6 +47,11 @@ export default function Page() {
     setNoCount((prev) => prev + 1);
   };
 
+  const getSadGif = () => {
+    const gifs = [sadgif1, sadgif2, sadgif3, sadgif4, sadgif5];
+    return gifs[Math.min(noCount, gifs.length - 1)];
+  };
+
   const getNoButtonText = () => {
     const phrases = [
       "No 😐",
@@ -59,14 +71,8 @@ export default function Page() {
   return (
     <div className="relative min-h-screen flex flex-col items-center justify-center text-zinc-900 backdrop-blur-sm">
       {/* Background Music */}
-      <audio
-        ref={audioRef}
-        loop
-        preload="auto"
-        src={bgMusicUrl}
-      />
+      <audio ref={audioRef} loop preload="auto" src={bgMusicUrl} />
 
-      {/* Music Toggle Button */}
       <button
         onClick={toggleMusic}
         className="absolute top-4 text-4xl right-4 bg-pink-500 hover:bg-pink-600 text-white p-3 rounded-full shadow-lg transition-all duration-200 hover:scale-110"
@@ -74,14 +80,10 @@ export default function Page() {
       >
         {musicPlaying ? "🔊" : "🔇"}
       </button>
-      
+
       {yesPressed ? (
         <>
-          <img
-            className="w-60 mb-6"
-            src="https://media.tenor.com/gUiu1zyxfzYAAAAi/bear-kiss-bear-kisses.gif"
-            alt="happy"
-          />
+          <img className="w-60 mb-6" src={loveGif} alt="happy" />
           <h1 className="text-4xl md:text-6xl font-extrabold text-green-600 text-center">
             Ok Yayyyyy!!! 💖
           </h1>
@@ -89,8 +91,8 @@ export default function Page() {
       ) : (
         <>
           <img
-            className="h-[230px] rounded-xl shadow-md mb-6"
-            src="https://gifdb.com/images/high/cute-love-bear-roses-ou7zho5oosxnpo6k.webp"
+            className="h-[230px] rounded-xl mb-6"
+            src={getSadGif()}
             alt="bear"
           />
 
