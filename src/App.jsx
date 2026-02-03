@@ -69,7 +69,7 @@ export default function Page() {
       {/* Music Toggle Button */}
       <button
         onClick={toggleMusic}
-        className="absolute top-4 right-4 bg-pink-500 hover:bg-pink-600 text-white p-3 rounded-full shadow-lg transition-all duration-200 hover:scale-110"
+        className="absolute top-4 text-4xl right-4 bg-pink-500 hover:bg-pink-600 text-white p-3 rounded-full shadow-lg transition-all duration-200 hover:scale-110"
         title={musicPlaying ? "Pause music" : "Play music"}
       >
         {musicPlaying ? "🔊" : "🔇"}
