@@ -7,6 +7,8 @@ import sadgif4 from "./assets/sad4.gif";
 import sadgif5 from "./assets/sad5.gif";
 import sadgif6 from "./assets/sad6.gif";
 import sadgif7 from "./assets/sad7.gif";
+import sadgif8 from "./assets/sad8.gif";
+
 
 const bgMusicUrl = "/music/music.mp3";
 
@@ -58,6 +60,7 @@ export default function Page() {
       sadgif5,
       sadgif6,
       sadgif7,
+      sadgif8
     ];
     return gifs[Math.min(noCount, gifs.length - 1)];
   };
@@ -101,7 +104,7 @@ export default function Page() {
       ) : (
         <>
           <img
-            className="h-[230px] rounded-xl mb-6"
+            className="h-57.5 rounded-xl mb-6"
             src={getSadGif()}
             alt="bear"
           />
